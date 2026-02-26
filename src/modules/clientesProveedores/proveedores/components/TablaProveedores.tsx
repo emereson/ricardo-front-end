@@ -64,8 +64,11 @@ const TablaProveedores = ({
       >
         <TableHeader>
           <TableColumn className="w-10 text-center">Nº</TableColumn>
-          <TableColumn className="min-w-30">TIPO DOC.</TableColumn>
-          <TableColumn className="min-w-32.5">NÚMERO DOC.</TableColumn>
+          <TableColumn className="min-w-30">NOMBRE Y APELLIDOS</TableColumn>
+          <TableColumn className="min-w-32.5">
+            TIPO DOC <br />
+            NÚMERO DOC.
+          </TableColumn>
           <TableColumn className="min-w-50">
             PROVEEDOR / RAZÓN SOCIAL
           </TableColumn>
@@ -99,13 +102,17 @@ const TablaProveedores = ({
               </TableCell>
 
               {/* 2. TIPO DOC */}
-              <TableCell className=" text-slate-600">
-                {item.tipo_documento_identidad}
+              <TableCell className=" text-slate-600 text-[11px] font-semibold">
+                {item.apellidos_proveedor} {item.nombre_proveedor}
               </TableCell>
 
               {/* 3. NUMERO DOC */}
               <TableCell>
+                <span className="text-[10px] text-nowrap">
+                  {item.tipo_documento_identidad}
+                </span>
                 <span className="font-mono font-medium text-slate-800">
+                  <br />
                   {item.numero_doc}
                 </span>
               </TableCell>

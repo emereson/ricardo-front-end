@@ -8,6 +8,7 @@ import config from "../../../auth/auth.config";
 import FiltrarProveedores from "./components/FiltrarProveedores";
 import CreateProveedor from "./components/crudProveedor/CreateProveedor";
 import TablaProveedores from "./components/TablaProveedores";
+import UpdateProveedor from "./components/crudProveedor/UpdateProveedor";
 
 export interface DataFilterProveedor {
   cualquier_dato: string;
@@ -111,13 +112,20 @@ const Proveedores = () => {
         setSelectProveedor={setSelectProveedor}
       />
 
-      {/* AQUÍ IRÍA TU TABLA DE PROVEEDORES...
-       */}
       <CreateProveedor
         isOpen={isOpen}
         onOpenChange={onOpenChange}
         findProveedores={findProveedores}
       />
+      {selectModal === "update" && selectProveedor && (
+        <UpdateProveedor
+          key={selectProveedor.id}
+          isOpen={isOpen}
+          onOpenChange={onOpenChange}
+          findProveedores={findProveedores}
+          selectProveedor={selectProveedor}
+        />
+      )}
     </main>
   );
 };
